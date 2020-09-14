@@ -1,0 +1,17 @@
+#txtestado {
+    border-radius: 40px !important;
+}
+
+.card {
+    border-radius: 0px !important;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none !important;
+color: darkgrey;
+}
+
+.rounded-circle{
+    /* border: 1px solid #DFDFDF !important; */
+    background-color:white;
+}
