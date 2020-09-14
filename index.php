@@ -92,9 +92,21 @@ date_default_timezone_set('America/Lima');
           </div>
           <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
             <div class="d-inline-flex ml-1">
-              <img src="assets/images/lampara.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
+              <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
               <div class="float-left ">
-                <span><b><small>LÁMPARA DEVICE</small></b></span> -
+                <span><small><strong>MÚSICA</strong></small></span> -
+                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
+              </div>
+            </div>
+            <p></p>
+            <p><span style="color:red;">♫</span> Reproduciendo Like a Stone - Stereophonic a las 3:24 pm en sala.</p>
+            <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
+          </div>
+          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
+            <div class="d-inline-flex ml-1">
+              <img src="assets/images/proximidad.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
+              <div class="float-left ">
+                <span><small><strong>PROXIMIDAD HOGAR</strong></small></span> -
                 <span class=""><small class="text-muted ">Hace 35 min.</small></span>
               </div>
             </div>
@@ -104,9 +116,9 @@ date_default_timezone_set('America/Lima');
           </div>
           <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
             <div class="d-inline-flex ml-1">
-              <img src="assets/images/lampara.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
+              <img src="assets/images/regar.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
               <div class="float-left ">
-                <span><b><small>LÁMPARA DEVICE</small></b></span> -
+                <span><small><strong>RIEGO PLANTAS</strong></small></span> -
                 <span class=""><small class="text-muted ">Hace 35 min.</small></span>
               </div>
             </div>
@@ -116,9 +128,9 @@ date_default_timezone_set('America/Lima');
           </div>
           <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
             <div class="d-inline-flex ml-1">
-              <img src="assets/images/lampara.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
+              <img src="assets/images/bocina.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
               <div class="float-left ">
-                <span><b><small>LÁMPARA DEVICE</small></b></span> -
+                <span><small><strong>ALARMA GENERAL</strong></small></span> -
                 <span class=""><small class="text-muted ">Hace 35 min.</small></span>
               </div>
             </div>
@@ -128,9 +140,9 @@ date_default_timezone_set('America/Lima');
           </div>
           <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
             <div class="d-inline-flex ml-1">
-              <img src="assets/images/lampara.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
+              <img src="assets/images/seguridad.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
               <div class="float-left ">
-                <span><b><small>LÁMPARA DEVICE</small></b></span> -
+                <span><small><strong>SEGURIDAD PUERTA</strong></small></span> -
                 <span class=""><small class="text-muted ">Hace 35 min.</small></span>
               </div>
             </div>
@@ -138,35 +150,12 @@ date_default_timezone_set('America/Lima');
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
+          <!-- rounded-circle  -->
           <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
             <div class="d-inline-flex ml-1">
-              <img src="assets/images/lampara.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
+              <img src="assets/images/lampara.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
               <div class="float-left ">
-                <span><b><small>LÁMPARA DEVICE</small></b></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
-              </div>
-            </div>
-            <p></p>
-            <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
-            <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
-          </div>
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
-            <div class="d-inline-flex ml-1">
-              <img src="assets/images/lampara.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
-              <div class="float-left ">
-                <span><b><small>LÁMPARA DEVICE</small></b></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
-              </div>
-            </div>
-            <p></p>
-            <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
-            <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
-          </div>
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
-            <div class="d-inline-flex ml-1">
-              <img src="assets/images/lampara.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
-              <div class="float-left ">
-                <span><b><small>LÁMPARA DEVICE</small></b></span> -
+                <span><small><strong>LUZ CUARTO</strong></small></span> -
                 <span class=""><small class="text-muted ">Hace 35 min.</small></span>
               </div>
             </div>
@@ -177,9 +166,9 @@ date_default_timezone_set('America/Lima');
 
           <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
             <div class="d-inline-flex ml-1">
-              <img src="assets/images/lampara.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
+              <img src="assets/images/lampara.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
               <div class="float-left ">
-                <span><b><small>LÁMPARA DEVICE</small></b></span> -
+                <span><small><strong>LUZ SALA</strong></small></span> -
                 <span class=""><small class="text-muted ">Hace 35 min.</small></span>
               </div>
             </div>
@@ -190,9 +179,9 @@ date_default_timezone_set('America/Lima');
 
           <div class="card text-center p-1 mt-3 p-2 shadow-sm d-flex" style="width: 100%;">
             <div class="d-inline-flex ml-1">
-              <img src="assets/images/clima.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left rounded-circle shadow-sm">
+              <img src="assets/images/clima.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
               <div class="float-left ">
-                <span><b><small>CLIMA DEVICE</small></b></span> -
+                <span><small><strong>TEMPERATURA Y HUMERDAD</strong></small></span> -
                 <span class=""><small class="text-muted ">Hace 2 min.</small></span>
               </div>
             </div>

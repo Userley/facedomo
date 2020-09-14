@@ -71,11 +71,11 @@
                 <div class="overflow-auto bg-light p-3 border" style="max-width: 100%; max-height: 680px;">
 <span class="text-center m-1"><h3><i class="fa fa-user-o" aria-hidden="true"></i> AMIGOS  -  MIS COSAS</h3></span>
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="assets/images/lampara.png" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -87,11 +87,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="assets/images/lampara.png" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -103,11 +103,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="assets/images/seguridad.png" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -119,11 +119,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="assets/images/bocina.png" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -135,11 +135,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="assets/images/clima.png" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -151,11 +151,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="assets/images/regar.png" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -167,11 +167,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="assets/images/proximidad.png" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -183,11 +183,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="assets/images/music.png" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
