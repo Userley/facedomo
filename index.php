@@ -106,6 +106,7 @@ date_default_timezone_set('America/Lima');
                     Hace 35 min.</small></span>
               </div>
             </div>
+            <hr>
             <p></p>
             <p><span style="color:red;">♫</span> Reproduciendo Like a Stone - Stereophonic a las 3:24 pm en sala.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
@@ -119,6 +120,7 @@ date_default_timezone_set('America/Lima');
                     Hace 35 min.</small></span>
               </div>
             </div>
+            <hr>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
@@ -132,6 +134,7 @@ date_default_timezone_set('America/Lima');
                     Hace 35 min.</small></span>
               </div>
             </div>
+            <hr>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
@@ -145,6 +148,7 @@ date_default_timezone_set('America/Lima');
                     Hace 35 min.</small></span>
               </div>
             </div>
+            <hr>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
@@ -158,6 +162,7 @@ date_default_timezone_set('America/Lima');
                     Hace 35 min.</small></span>
               </div>
             </div>
+            <hr>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
@@ -172,6 +177,7 @@ date_default_timezone_set('America/Lima');
                     Hace 35 min.</small></span>
               </div>
             </div>
+            <hr>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
@@ -186,6 +192,7 @@ date_default_timezone_set('America/Lima');
                     Hace 35 min.</small></span>
               </div>
             </div>
+            <hr>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
@@ -207,8 +214,6 @@ date_default_timezone_set('America/Lima');
             </span>
             <p><b>Buen día Erick</b></p>
             <p><i>Hoy es <?php echo $fecha = strftime("%d de %B de %Y"); ?></i></p>
-            <hr>
-            <textarea name="" class="form-control" id="" cols="30" rows="5" placeholder="Comentario"></textarea>
           </div>
         </div>
       </div>

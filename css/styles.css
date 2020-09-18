@@ -103,8 +103,8 @@ input[type=submit] {
 
 @-webkit-keyframes slide-bottom {
     0% {
-        -webkit-transform: translateY(-20px);
-        transform: translateY(-20px)
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px)
     }
     100% {
         -webkit-transform: translateY(0px);
@@ -114,8 +114,8 @@ input[type=submit] {
 
 @keyframes slide-bottom {
     0% {
-        -webkit-transform: translateY(-20px);
-        transform: translateY(-20px)
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px)
     }
     100% {
         -webkit-transform: translateY(0px);
@@ -126,8 +126,8 @@ input[type=submit] {
 .animable {
     -webkit-animation-name: slide-top;
     animation-name: slide-top;
-    -webkit-animation-duration: 0.2s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
 }
@@ -135,8 +135,8 @@ input[type=submit] {
 .faceanimable {
     -webkit-animation-name: slide-buttom;
     animation-name: slide-bottom;
-    -webkit-animation-duration: 2s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
 }
