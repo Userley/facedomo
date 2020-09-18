@@ -1,3 +1,6 @@
+<?php
+include_once('conexion.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -69,9 +72,11 @@
             </div>
             <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
                 <div class="overflow-auto bg-light p-3 border" style="max-width: 100%; max-height: 680px;">
-<span class="text-center m-1"><h3><i class="fa fa-user-o" aria-hidden="true"></i> AMIGOS  -  MIS COSAS</h3></span>
+                    <span class="text-center m-1">
+                        <h3><i class="fa fa-user-o" aria-hidden="true"></i> AMIGOS - MIS COSAS</h3>
+                    </span>
                     <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <!-- <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
@@ -182,23 +187,35 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4">
-                                        <img src="assets/images/music.png" class="card-img" alt="...">
+                        </div> -->
+                        <?php
+
+                        $sql = mysqli_query($Cn, "select * from dispositivos order by iddispositivo");
+
+                        while ($row = mysqli_fetch_array($sql)) {
+                            $name = $row['Nombre'];
+                            $imagen = $row['imagen'];
+                            $descripcion = $row['Descripcion'];
+
+
+                            echo    "<div class='col-sm-6 col-md-6 col-lg-6 col-xl-6'>
+                            <div class='card mb-3' style='max-width: 540px;'>
+                                <div class='row no-gutters'>
+                                    <div class='col-md-4'>
+                                        <img src='" . $imagen . "' class='card-img' alt='...'>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">MUSICA</h5>
-                                            <p class="card-text">Estado: ---</p>
-                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    <div class='col-md-8'>
+                                        <div class='card-body'>
+                                            <h5 class='card-title'>" . $name . "</h5>
+                                            <p class='card-text'><strong>Descripción</strong>: " . $descripcion . "</p>
+                                            <p class='card-text'><small class='text-muted'>Last updated 3 mins ago</small></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>";
+                        }
+                        ?>
                     </div>
 
                 </div>

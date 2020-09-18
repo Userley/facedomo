@@ -1,5 +1,5 @@
 <?php
-require('assets/simpledom/simple_html_dom.php');
+// require('assets/simpledom/simple_html_dom.php');
 setlocale(LC_ALL, "es_PE", "es_PE", "esp");
 //setlocale(LC_TIME, 'es_PE.UTF-8');
 date_default_timezone_set('America/Lima');
@@ -10,6 +10,8 @@ date_default_timezone_set('America/Lima');
 
 //   $title = $linkObj->children(0)->children(0)->plaintext;
 // }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,6 +27,11 @@ date_default_timezone_set('America/Lima');
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  <link href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 </head>
 
 <body>
@@ -57,7 +64,7 @@ date_default_timezone_set('America/Lima');
   </header>
   <section class="container-fluid mt-3">
     <div class="row">
-      <div class="col-md-3 col-lg-3 col-xl-3 d-none d-sm-none d-md-block d-lg-block">
+      <div class="col-md-3 col-lg-3 col-xl-3 d-none d-sm-none d-md-block d-lg-block faceanimable">
         <div class="d-flex justify-content-center">
           <div class="card bg-light card-light" style="width: 18rem;">
             <img src="assets/images/userley.jpg" class="card-img-top" alt="...">
@@ -80,8 +87,8 @@ date_default_timezone_set('America/Lima');
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
-        <div class="overflow-auto bg-light p-3 border" style="max-width: 100%; max-height: 680px;">
+      <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9">
+        <div class="overflow-auto bg-light p-0 p-md-3 border" style="max-width: 100%; max-height: 680px;">
           <div class="card bg-light card-light">
             <div class="card-body">
               <div class="d-flex justify-content-center">
@@ -90,60 +97,65 @@ date_default_timezone_set('America/Lima');
               </div>
             </div>
           </div>
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
+          <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
-              <div class="float-left ">
+              <div class="float-left mt-1">
                 <span><small><strong>MÚSICA</strong></small></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
               </div>
             </div>
             <p></p>
             <p><span style="color:red;">♫</span> Reproduciendo Like a Stone - Stereophonic a las 3:24 pm en sala.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
+          <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/proximidad.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
-              <div class="float-left ">
+              <div class="float-left mt-1">
                 <span><small><strong>PROXIMIDAD HOGAR</strong></small></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
               </div>
             </div>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
+          <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/regar.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
-              <div class="float-left ">
+              <div class="float-left mt-1">
                 <span><small><strong>RIEGO PLANTAS</strong></small></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
               </div>
             </div>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
+          <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/bocina.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
-              <div class="float-left ">
+              <div class="float-left mt-1">
                 <span><small><strong>ALARMA GENERAL</strong></small></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
               </div>
             </div>
             <p></p>
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
+          <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/seguridad.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
-              <div class="float-left ">
+              <div class="float-left mt-1">
                 <span><small><strong>SEGURIDAD PUERTA</strong></small></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
               </div>
             </div>
             <p></p>
@@ -151,12 +163,13 @@ date_default_timezone_set('America/Lima');
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
           <!-- rounded-circle  -->
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
+          <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/lampara.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
-              <div class="float-left ">
+              <div class="float-left mt-1">
                 <span><small><strong>LUZ CUARTO</strong></small></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
               </div>
             </div>
             <p></p>
@@ -164,12 +177,13 @@ date_default_timezone_set('America/Lima');
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
 
-          <div class="card text-center p-1 mt-3 shadow-sm d-flex" style="width: 100%;">
+          <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/lampara.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
-              <div class="float-left ">
+              <div class="float-left mt-1">
                 <span><small><strong>LUZ SALA</strong></small></span> -
-                <span class=""><small class="text-muted ">Hace 35 min.</small></span>
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
               </div>
             </div>
             <p></p>
@@ -177,26 +191,177 @@ date_default_timezone_set('America/Lima');
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
 
-          <div class="card text-center p-1 mt-3 p-2 shadow-sm d-flex" style="width: 100%;">
+          <div class="card text-center p-1 mt-2 p-2 shadow-sm d-flex" style="width: 100%;">
             <div class="d-inline-flex ml-1">
-              <img src="assets/images/clima.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
-              <div class="float-left ">
+              <img src="assets/images/clima.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow">
+              <div class="float-left mt-1">
                 <span><small><strong>TEMPERATURA Y HUMERDAD</strong></small></span> -
-                <span class=""><small class="text-muted ">Hace 2 min.</small></span>
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 2 min.</small></span>
               </div>
             </div>
+            <hr>
             <p></p>
             <span class="text-primary">
               <h1><i class="fa fa-sun-o" aria-hidden="true"></i></h1>
             </span>
             <p><b>Buen día Erick</b></p>
             <p><i>Hoy es <?php echo $fecha = strftime("%d de %B de %Y"); ?></i></p>
-
+            <hr>
+            <textarea name="" class="form-control" id="" cols="30" rows="5" placeholder="Comentario"></textarea>
           </div>
         </div>
       </div>
     </div>
   </section>
 </body>
+<script>
+  // $(function() {
+  //   var availableTutorials = [
+  //     "TEMPERATURA Y HUMERDAD",
+  //     "LUZ SALA",
+  //     "LUZ CUARTO",
+  //     "SEGURIDAD PUERTA",
+  //     "ALARMA GENERAL",
+  //     "RIEGO PLANTAS",
+  //     "PROXIMIDAD HOGAR",
+  //     "MÚSICA"
+  //   ];
+
+  //   $("#txtestado").autocomplete({
+  //     minLength: 2,
+  //     delay: 500,
+  //     source: availableTutorials
+  //   });
+
+  // });
+  var countries = ["Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Anguilla",
+    "Antigua &amp; Barbuda",
+    "Argentina",
+    "Armenia",
+    "Aruba",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahamas",
+    "Bahrain",
+    "Bangladesh",
+    "Barbados",
+    "Belarus",
+    "Belgium",
+    "Belize",
+    "Benin",
+    "Bermuda"
+  ];
+
+  function autocomplete(inp, arr) {
+    /*the autocomplete function takes two arguments,
+    the text field element and an array of possible autocompleted values:*/
+    var currentFocus;
+    /*execute a function when someone writes in the text field:*/
+    inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) {
+        return false;
+      }
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+            /*insert the value for the autocomplete text field:*/
+            inp.value = this.getElementsByTagName("input")[0].value;
+            /*close the list of autocompleted values,
+            (or any other open lists of autocompleted values:*/
+            closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+    });
+    /*execute a function presses a key on the keyboard:*/
+    inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+    });
+
+    function addActive(x) {
+      /*a function to classify an item as "active":*/
+      if (!x) return false;
+      /*start by removing the "active" class on all items:*/
+      removeActive(x);
+      if (currentFocus >= x.length) currentFocus = 0;
+      if (currentFocus < 0) currentFocus = (x.length - 1);
+      /*add class "autocomplete-active":*/
+      x[currentFocus].classList.add("autocomplete-active");
+    }
+
+    function removeActive(x) {
+      /*a function to remove the "active" class from all autocomplete items:*/
+      for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("autocomplete-active");
+      }
+    }
+
+    function closeAllLists(elmnt) {
+      /*close all autocomplete lists in the document,
+      except the one passed as an argument:*/
+      var x = document.getElementsByClassName("autocomplete-items");
+      for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != inp) {
+          x[i].parentNode.removeChild(x[i]);
+        }
+      }
+    }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", function(e) {
+      closeAllLists(e.target);
+    });
+  }
+
+  autocomplete(document.getElementById("txtestado"), countries);
+</script>
 
 </html>

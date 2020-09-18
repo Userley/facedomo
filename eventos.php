@@ -1,3 +1,23 @@
+<?php
+$host = "localhost";
+$bd = "domobd";
+$pass = "";
+$user = "root";
+
+$Cn = mysqli_connect($host, $user, $pass, $bd) or die("Error de conex");
+
+$sql = mysqli_query($Cn, "select * from dispositivos order by iddispositivo");
+
+while ($row = mysqli_fetch_array($sql)) {
+  $name = $row['Nombre'];
+}
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,12 +32,13 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href=index.php"><img src="https://code.google.com/images/developers.png" alt="" width="25px"><b> DOMO</b><i>Live</i></a>
+      <a class="navbar-brand" href="index.php"><img src="https://code.google.com/images/developers.png" alt="" width="25px"><b> DOMO</b><i>Live</i></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -69,13 +90,37 @@
       </div>
       <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
         <div class="overflow-auto bg-light p-3 border" style="max-width: 100%; max-height: 680px;">
-
-     
+          <div class="textarea_noticia" id="textarea_noticia" contenteditable="true"></div>
+          <div id='display_users'></div>
+          <div class="display_box" align="left">
+            <a href="#" class='addname' title='<?php echo $name; ?>'>
+              <?php echo $name; ?>&nbsp</a><br />
+          </div>
 
         </div>
       </div>
     </div>
   </section>
 </body>
+<style>
+  .textarea_noticia {
+    background-color: white;
+    border-radius: 15px;
+    padding: 3px;
+    border: 1px solid #d4d4d4;
+  }
+</style>
+<script>
+  $(".addname").on("click", function() {
+    var username = $(this).attr('title');
+    var old =  $(".textarea_noticia").html();
+     var word = username;
+    var content = old.replace(word, "");
+    $(".textarea_noticia").html(content);
+    var E = "<a class='red' contenteditable='false' href='www.google.com' >" + username + "</a>";
+    $(".textarea_noticia").append(E);
+    $("#display_users").hide();
+  });
+</script>
 
 </html>
