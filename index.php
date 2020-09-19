@@ -201,6 +201,7 @@ date_default_timezone_set('America/Lima');
               </small>
             </div>
           </div>
+
           <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/proximidad.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
@@ -218,6 +219,7 @@ date_default_timezone_set('America/Lima');
               </small>
             </div>
           </div>
+
           <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/regar.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
@@ -232,6 +234,7 @@ date_default_timezone_set('America/Lima');
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
+
           <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/bocina.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
@@ -246,6 +249,7 @@ date_default_timezone_set('America/Lima');
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
+
           <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/seguridad.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
@@ -260,6 +264,7 @@ date_default_timezone_set('America/Lima');
             <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
+          
           <!-- rounded-circle  -->
           <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">

@@ -21,9 +21,9 @@ if (isset($_POST["idpost"]) && !empty($_POST["idpost"])) {
     if ($query->num_rows > 0) {
         while ($row = $query->fetch_assoc()) {
             $postID = $row["idpost"]; ?>
-            <div class="list-item"><a href="javascript:void(0);">
-                    <h2><?php echo $row["idpost"]; ?></h2>
-                </a></div>
+              <div class="list-item">
+                <?php echo $row['contenido']; ?>
+              </div>
         <?php } ?>
         <?php if ($allNumRows > $showLimit) { ?>
             <div class="load-more" lastID="<?php echo $postID; ?>" style="display: none;">

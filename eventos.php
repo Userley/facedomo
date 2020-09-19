@@ -78,13 +78,22 @@ include_once("conexion.php");
         </div>
       </div>
       <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
-        <div class="bg-light p-1 " id="postList" style="max-width: 100%; max-height: 680px;">
+        <div class="bg-light p-1" id="postList" style="max-width: 100%; max-height: 680px;">
           <!-- <div class="textarea_noticia" id="textarea_noticia" contenteditable="true"></div>
           <div id='display_users'></div>
           <div class="display_box" align="left">
             <a href="#" class='addname' title='?php echo $name; ?>'>
               ?php echo $name; ?>&nbsp</a><br />
           </div> -->
+
+          <div class="card bg-light card-light animable">
+            <div class="card-body">
+              <div class="d-flex justify-content-center">
+                <img src="assets/images/userley.jpg" width="40px" class="d-inline-flex mr-3 rounded-circle" alt="">
+                <input type="text" name="" id="txtestado" class="form-control d-inline-flex" style="width: 100%;" placeholder="Escribe tu estado...">
+              </div>
+            </div>
+          </div>
           <?php
           //get rows query
           $query = mysqli_query($Cn, "SELECT * FROM post ORDER BY idpost DESC LIMIT 10");
@@ -93,8 +102,8 @@ include_once("conexion.php");
               $postID = $row["idpost"];
           ?>
               <div class="list-item">
-                  <?php echo $row['contenido']; ?>
-        
+                <?php echo $row['contenido']; ?>
+
               </div>
 
             <?php } ?>
