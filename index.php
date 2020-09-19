@@ -97,7 +97,94 @@ date_default_timezone_set('America/Lima');
               </div>
             </div>
           </div>
-          <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
+
+
+
+          <div class="card  p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
+            <div class="d-inline-flex ml-1">
+              <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
+              <div class="float-left mt-1">
+                <span><small><strong>LUZ</strong></small></span> -
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
+              </div>
+            </div>
+            <hr>
+            <div class="p-1 pl-2 pr-2">
+              <p><span style="text-align: justify !important;"></span>Buen día USUARIO, soy <i>DISPOSITIVO</i> de tu domicilio <i class="fa fa-smile-o" aria-hidden="true"></i>.</p>
+              <small>
+                <p class="text-muted"><i class="fa fa-home" aria-hidden="true"></i> Domo<i>Live</i></p>
+              </small>
+            </div>
+          </div>
+
+
+
+          <div class="card  p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
+            <div class="d-inline-flex ml-1">
+              <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
+              <div class="float-left mt-1">
+                <span><small><strong>LUZ</strong></small></span> -
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
+              </div>
+            </div>
+            <hr>
+            <div class="p-1 pl-2 pr-2">
+              <p><span style="text-align: justify !important;"></span>El estado de <i>DISPOSITIVO</i> es:</p>
+              <p style="text-align:center !important;"><i class="fa fa-power-off" aria-hidden="true" style="color:COLORPHP;font-size: 25px;"></i><br>ESTADOPHP</p>
+              <small>
+                <p class=""><span style="color: #159F5C">Actuado:</span> FECHAPHP <i>a las</i> HORAPHP <i>por</i> <i class="fa fa-user-o" style="color:#4C8CF5" aria-hidden="true"></i> USUARIOPHP</p>
+              </small>
+              <small>
+                <p class="text-muted"><i class="fa fa-home" aria-hidden="true"></i> Domo<i>Live</i></p>
+              </small>
+            </div>
+          </div>
+
+
+          <div class="card  p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
+            <div class="d-inline-flex ml-1">
+              <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
+              <div class="float-left mt-1">
+                <span><small><strong>LUZ</strong></small></span> -
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
+              </div>
+            </div>
+            <hr>
+            <div class="p-1 pl-2 pr-2">
+              <p><span style="text-align: justify !important;"></span>Su solicitud a <i>DISPOSITIVO</i> se está enviando</p>
+              <p style="text-align:center !important;"><i class="fa fa-toggle-on" aria-hidden="true" style="color:#49B164; font-size: 25px;"></i><br><i> encender...</i></p>
+              <small>
+                <p class="text-muted"><i class="fa fa-home" aria-hidden="true"></i> Domo<i>Live</i></p>
+              </small>
+            </div>
+          </div>
+
+
+          <div class="card  p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
+            <div class="d-inline-flex ml-1">
+              <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
+              <div class="float-left mt-1">
+                <span><small><strong>LUZ</strong></small></span> -
+                <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Hace 35 min.</small></span>
+              </div>
+            </div>
+            <hr>
+            <div class="p-1 pl-2 pr-2">
+              <p><span style="text-align: justify !important;"></span>Su solicitud a <i>DISPOSITIVO</i> se está enviando</p>
+              <p style="text-align:center !important;"><i class="fa fa-toggle-off" aria-hidden="true" style="color:#F90101; font-size: 25px;"></i><br><i> apagando...</i></p>
+              <small>
+                <p class="text-muted"><i class="fa fa-home" aria-hidden="true"></i> Domo<i>Live</i></p>
+              </small>
+            </div>
+          </div>
+
+
+
+          <div class="card  p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
               <div class="float-left mt-1">
@@ -107,9 +194,12 @@ date_default_timezone_set('America/Lima');
               </div>
             </div>
             <hr>
-            <p></p>
-            <p><span style="color:red;">♫</span> Reproduciendo Like a Stone - Stereophonic a las 3:24 pm en sala.</p>
-            <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
+            <div class="p-2">
+              <p><span style="color:red; text-align: justify !important;">♫</span> Reproduciendo Like a Stone - Stereophonic a las 3:24 pm en sala.</p>
+              <small>
+                <p class="text-muted"><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
+              </small>
+            </div>
           </div>
           <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
@@ -121,9 +211,12 @@ date_default_timezone_set('America/Lima');
               </div>
             </div>
             <hr>
-            <p></p>
-            <p><span style="color:green;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
-            <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
+            <div class="p-2">
+              <p><span style="color:green; text-align: justify !important;">◉</span> Se encendió la luz de la sala a las 3:24 pm.</p>
+              <small>
+                <p class="text-muted"><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
+              </small>
+            </div>
           </div>
           <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">

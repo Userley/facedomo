@@ -1,19 +1,5 @@
 <?php
-$host = "localhost";
-$bd = "domobd";
-$pass = "";
-$user = "root";
-
-$Cn = mysqli_connect($host, $user, $pass, $bd) or die("Error de conex");
-
-$sql = mysqli_query($Cn, "select * from dispositivos order by iddispositivo");
-
-while ($row = mysqli_fetch_array($sql)) {
-  $name = $row['Nombre'];
-}
-
-
-
+include_once("conexion.php");
 
 ?>
 
@@ -32,7 +18,10 @@ while ($row = mysqli_fetch_array($sql)) {
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  <link href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -89,37 +78,126 @@ while ($row = mysqli_fetch_array($sql)) {
         </div>
       </div>
       <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
-        <div class="overflow-auto bg-light p-3 border" style="max-width: 100%; max-height: 680px;">
-          <div class="textarea_noticia" id="textarea_noticia" contenteditable="true"></div>
+        <div class="bg-light p-1 " id="postList" style="max-width: 100%; max-height: 680px;">
+          <!-- <div class="textarea_noticia" id="textarea_noticia" contenteditable="true"></div>
           <div id='display_users'></div>
           <div class="display_box" align="left">
-            <a href="#" class='addname' title='<?php echo $name; ?>'>
-              <?php echo $name; ?>&nbsp</a><br />
-          </div>
+            <a href="#" class='addname' title='?php echo $name; ?>'>
+              ?php echo $name; ?>&nbsp</a><br />
+          </div> -->
+          <?php
+          //get rows query
+          $query = mysqli_query($Cn, "SELECT * FROM post ORDER BY idpost DESC LIMIT 10");
+          if ($query->num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($query)) {
+              $postID = $row["idpost"];
+          ?>
+              <div class="list-item">
+                  <?php echo $row['contenido']; ?>
+        
+              </div>
 
+            <?php } ?>
+            <div class="load-more" lastID="<?php echo $postID; ?>" style="display: none;">
+              <!-- <img src="loading.gif" /> -->
+            </div>
+          <?php } ?>
+          <!-- </div> -->
         </div>
+
       </div>
     </div>
   </section>
 </body>
 <style>
-  .textarea_noticia {
+  /* .textarea_noticia {
     background-color: white;
     border-radius: 15px;
     padding: 3px;
     border: 1px solid #d4d4d4;
+  } */
+
+  .post-list {
+    margin-bottom: 20px;
+  }
+
+  div.list-item {
+    /* border-left: 4px solid #7ad03a;
+    margin: 5px 15px 2px;
+    padding: 1px 12px;
+    background-color: #F1F1F1;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+    height: 60px; */
+  }
+
+  div.list-item p {
+    /* margin: .5em 0;
+    padding: 2px;
+    font-size: 13px;
+    line-height: 1.5; */
+  }
+
+  .list-item a {
+    /* text-decoration: none;
+    padding-bottom: 2px;
+    color: #0074a2;
+    -webkit-transition-property: border, background, color;
+    transition-property: border, background, color;
+    -webkit-transition-duration: .05s;
+    transition-duration: .05s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out; */
+  }
+
+  .list-item a:hover {
+    text-decoration: underline;
+  }
+
+  .load-more {
+    margin: 15px 25px;
+    cursor: pointer;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .list-item h2 {
+    /* font-size: 25px;
+    font-weight: bold;
+    text-align: left; */
   }
 </style>
 <script>
-  $(".addname").on("click", function() {
-    var username = $(this).attr('title');
-    var old =  $(".textarea_noticia").html();
-     var word = username;
-    var content = old.replace(word, "");
-    $(".textarea_noticia").html(content);
-    var E = "<a class='red' contenteditable='false' href='www.google.com' >" + username + "</a>";
-    $(".textarea_noticia").append(E);
-    $("#display_users").hide();
+  // $(".addname").on("click", function() {
+  //   var username = $(this).attr('title');
+  //   var old =  $(".textarea_noticia").html();
+  //    var word = username;
+  //   var content = old.replace(word, "");
+  //   $(".textarea_noticia").html(content);
+  //   var E = "<a class='red' contenteditable='false' href='www.google.com' >" + username + "</a>";
+  //   $(".textarea_noticia").append(E);
+  //   $("#display_users").hide();
+  // });
+
+  $(document).ready(function() {
+    $(window).scroll(function() {
+      var lastID = $('.load-more').attr('lastID');
+      if ($(window).scrollTop() == $(document).height() - $(window).height() && lastID != 0) {
+        $.ajax({
+          type: 'POST',
+          url: 'getData.php',
+          data: 'idpost=' + lastID,
+          beforeSend: function(html) {
+            $('.load-more').show();
+          },
+          success: function(html) {
+            $('.load-more').remove();
+            $('#postList').append(html);
+          }
+        });
+      }
+    });
   });
 </script>
 
