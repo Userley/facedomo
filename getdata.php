@@ -27,7 +27,7 @@ if (isset($_POST["idpost"]) && !empty($_POST["idpost"])) {
         <?php } ?>
         <?php if ($allNumRows > $showLimit) { ?>
             <div class="load-more" lastID="<?php echo $postID; ?>" style="display: none;">
-                <!-- <img src="loading.gif" /> -->
+                <img src="assets/images/loading.gif" />
             </div>
         <?php } else { ?>
             <div class="load-more" lastID="0">

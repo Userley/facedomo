@@ -24,7 +24,7 @@ include_once("conexion.php");
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </head>
 
-<body>
+<body class="bg-light">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="index.php"><img src="https://code.google.com/images/developers.png" alt="" width="25px"><b> DOMO</b><i>Live</i></a>
@@ -53,7 +53,7 @@ include_once("conexion.php");
     </nav>
   </header>
   <section class="container-fluid mt-3">
-    <div class="row">
+    <div class="row" id="cuerpo">
       <div class="col-md-3 col-lg-3 col-xl-3 d-none d-sm-none d-md-block d-lg-block">
         <div class="d-flex justify-content-center">
           <div class="card bg-light card-light" style="width: 18rem;">
@@ -78,14 +78,14 @@ include_once("conexion.php");
         </div>
       </div>
       <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
-        <div class="bg-light p-1" id="postList" style="max-width: 100%; max-height: 680px;">
-          <!-- <div class="textarea_noticia" id="textarea_noticia" contenteditable="true"></div>
+        <!-- <div class=" p-1" id="postList" style="max-width: 100%; max-height: 680px;"> -->
+        <!-- <div class="textarea_noticia" id="textarea_noticia" contenteditable="true"></div>
           <div id='display_users'></div>
           <div class="display_box" align="left">
             <a href="#" class='addname' title='?php echo $name; ?>'>
               ?php echo $name; ?>&nbsp</a><br />
           </div> -->
-
+        <div class="overflow-auto bg-light p-md-3 border" id="postList" style="max-width: 100%;">
           <div class="card bg-light card-light animable">
             <div class="card-body">
               <div class="d-flex justify-content-center">
@@ -108,7 +108,7 @@ include_once("conexion.php");
 
             <?php } ?>
             <div class="load-more" lastID="<?php echo $postID; ?>" style="display: none;">
-              <!-- <img src="loading.gif" /> -->
+              <img src="assets/images/loading.gif" />
             </div>
           <?php } ?>
           <!-- </div> -->
@@ -189,10 +189,23 @@ include_once("conexion.php");
   //   $("#display_users").hide();
   // });
 
+  // $(document).ready(function() {
+  //   $(window).scroll(function() {
+  //     var lastID = $('.load-more').attr('lastID');
+  //     if ($(window).scrollTop() == $(document).height() - $(window).height() && lastID != 0) {
   $(document).ready(function() {
-    $(window).scroll(function() {
+    var documento = $(window).height() - 83;
+    $('#postList').removeAttr('style');
+    $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
+
+    $('#postList').scroll(function() {
       var lastID = $('.load-more').attr('lastID');
-      if ($(window).scrollTop() == $(document).height() - $(window).height() && lastID != 0) {
+      var divlist = document.getElementById("postList");
+      var clientHeight = divlist.clientHeight;
+      var scrollHeight = divlist.scrollHeight;
+      var scrolTop = divlist.scrollTop + 1;
+      console.log(Math.round(scrolTop) + " = " + scrollHeight + "-" + clientHeight);
+      if (Math.round(scrolTop) == scrollHeight - clientHeight && lastID != 0) {
         $.ajax({
           type: 'POST',
           url: 'getData.php',
@@ -203,6 +216,9 @@ include_once("conexion.php");
           success: function(html) {
             $('.load-more').remove();
             $('#postList').append(html);
+            var documento = $(window).height() - 83;
+            $('#postList').removeAttr('style');
+            $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
           }
         });
       }
