@@ -62,7 +62,7 @@ include_once('conexion.php');
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"> <a href="index.php"> <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                                     NOTICIAS</a></li>
-                            <li class="list-group-item"> <a href="eventos.php"> <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            <li class="list-group-item"> <a href="nada.php"> <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                                     EVENTOS</a></li>
                             <li class="list-group-item bg-dark"><a href="amigos.php"> <i class="fa fa-user-o" aria-hidden="true"></i>
                                     AMIGOS</a></li>

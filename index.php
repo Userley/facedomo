@@ -1,7 +1,7 @@
 <?php
+include_once("conexion.php");
 // require('assets/simpledom/simple_html_dom.php');
 setlocale(LC_ALL, "es_PE", "es_PE", "esp");
-//setlocale(LC_TIME, 'es_PE.UTF-8');
 date_default_timezone_set('America/Lima');
 // $url = 'https://weather.com/es-PE/tiempo/hoy/l/80cb57b6e6d0efdd5e6d696aa4cf3f748436a84856c2ed1d7cca73cdc7d815b7';
 // $html = file_get_html($url, false, null, 0);
@@ -10,7 +10,13 @@ date_default_timezone_set('America/Lima');
 
 //   $title = $linkObj->children(0)->children(0)->plaintext;
 // }
+$qrdispositivos = mysqli_query($Cn, "SELECT nombre FROM dispositivos");
 
+while ($data = mysqli_fetch_array($qrdispositivos)) {
+  $dispositivosarray[] = $data["nombre"];
+}
+$datadimplode = implode(",", $dispositivosarray);
+$datadisp =  str_replace(',', '","', $datadimplode);
 
 ?>
 <!DOCTYPE html>
@@ -79,7 +85,7 @@ date_default_timezone_set('America/Lima');
             <ul class="list-group list-group-flush">
               <li class="list-group-item bg-dark"> <a href="index.php"> <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                   NOTICIAS</a></li>
-              <li class="list-group-item"> <a href="eventos.php"> <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+              <li class="list-group-item"> <a href="nada.php"> <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                   EVENTOS</a></li>
               <li class="list-group-item"><a href="amigos.php"> <i class="fa fa-user-o" aria-hidden="true"></i>
                   AMIGOS</a></li>
@@ -88,7 +94,39 @@ date_default_timezone_set('America/Lima');
         </div>
       </div>
       <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9">
-        <div class="overflow-auto bg-light p-0 p-md-3 border" style="max-width: 100%; max-height: 680px;">
+        <div class="overflow-auto bg-light p-md-3 border" id="postList" style="max-width: 100%;">
+          <!-- <div class="card bg-light card-light animable">
+            <div class="card-body">
+              <div class="d-flex justify-content-center">
+                <img src="assets/images/userley.jpg" width="40px" class="d-inline-flex mr-3 rounded-circle" alt="">
+                <input type="text" name="" id="txtestados" class="form-control d-inline-flex" style="width: 100%;" placeholder="Escribe tu estado...">
+                <input type="button" class="btn btn-primary ml-2 rounded-circle" value="Ok">
+              </div>
+            </div>
+          </div> -->
+          <div class="card bg-light card-light animable">
+            <div class="card-body">
+              <div class="d-flex justify-content-center">
+                <img src="assets/images/userley.jpg" width="40px" class="d-inline-flex mr-3 rounded-circle" alt="">
+                <div contenteditable="true" id="txtestado" class="single-line bg-white d-inline"></div>
+                <!-- <input type="button" class="btn btn-primary ml-2 rounded-circle" value="Ok"> -->
+              </div>
+            </div>
+          </div>
+          <?php
+          //get rows query
+          $query = mysqli_query($Cn, "SELECT * FROM post ORDER BY idpost DESC LIMIT 10");
+          if ($query->num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($query)) {
+              $postID = $row["idpost"];
+              echo "<div class='card p-1 mt-2 shadow-sm d-flex animable' style='width: 100%;'>" . $row['contenido'] . "</div>";
+            }
+            echo "<div class='load-more' lastID='" . $postID . "' style='display: none;'><img src='assets/images/loading.gif' alt=''> </div>";
+          }
+          ?>
+        </div>
+
+        <!-- <div class="overflow-auto bg-light p-0 p-md-3 border" style="max-width: 100%; max-height: 680px;">
           <div class="card bg-light card-light">
             <div class="card-body">
               <div class="d-flex justify-content-center">
@@ -265,7 +303,7 @@ date_default_timezone_set('America/Lima');
             <p><i class="fa fa-user-o" aria-hidden="true"></i> <i><b>Usuario:</b> Sophia Leyva</i></p>
           </div>
           
-          <!-- rounded-circle  -->
+          
           <div class="card text-center p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">
             <div class="d-inline-flex ml-1">
               <img src="assets/images/lampara.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
@@ -311,9 +349,10 @@ date_default_timezone_set('America/Lima');
               <h1><i class="fa fa-sun-o" aria-hidden="true"></i></h1>
             </span>
             <p><b>Buen día Erick</b></p>
-            <p><i>Hoy es <?php echo $fecha = strftime("%d de %B de %Y"); ?></i></p>
+            <p><i>Hoy es ?php echo $fecha = strftime("%d de %B de %Y"); ?></i></p>
           </div>
-        </div>
+        </div> -->
+
       </div>
     </div>
   </section>
@@ -338,40 +377,29 @@ date_default_timezone_set('America/Lima');
   //   });
 
   // });
-  var countries = ["Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Anguilla",
-    "Antigua &amp; Barbuda",
-    "Argentina",
-    "Armenia",
-    "Aruba",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Barbados",
-    "Belarus",
-    "Belgium",
-    "Belize",
-    "Benin",
-    "Bermuda"
-  ];
+
+
+
+  var countries = <?php echo '["' . $datadisp . '"]' ?>;
+  console.log(countries);
 
   function autocomplete(inp, arr) {
+    var estado = 0;
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
     inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
+
+
+      var a, b, i, val = this.textContent;
       /*close any already open lists of autocompleted values*/
       closeAllLists();
       if (!val) {
+        if (this.textContent.length == 0) {
+          $('#etiqueta').remove();
+          $('#texto').remove();
+        }
         return false;
       }
       currentFocus = -1;
@@ -393,9 +421,21 @@ date_default_timezone_set('America/Lima');
           /*insert a input field that will hold the current array item's value:*/
           b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
+          //var letravisible = inp.innerHTML;
+          // $('#txtestado').find("font").remove();
+          //inp.innerHTML = letravisible;
+          estado = 0;
           b.addEventListener("click", function(e) {
+            estado = 1;
             /*insert the value for the autocomplete text field:*/
-            inp.value = this.getElementsByTagName("input")[0].value;
+            inp.innerHTML = "<a href='https://www.google.com' target='_blank' id='etiqueta'>" + this.getElementsByTagName("input")[0].value + "</a><span id='texto'>&nbsp;</span>";
+
+            if ($('#etiqueta').length != 0) {
+              var etiqueta = document.getElementById("etiqueta");
+              etiqueta.setAttribute('class', 'etiquet');
+              var texto = document.getElementById("texto");
+              setCursorToEnd(texto);
+            }
             /*close the list of autocompleted values,
             (or any other open lists of autocompleted values:*/
             closeAllLists();
@@ -404,6 +444,16 @@ date_default_timezone_set('America/Lima');
         }
       }
     });
+
+    function setCursorToEnd(ele) {
+      var range = document.createRange();
+      var sel = window.getSelection();
+      range.setStart(ele, 1);
+      range.collapse(true);
+      sel.removeAllRanges();
+      sel.addRange(range);
+      ele.focus();
+    }
     /*execute a function presses a key on the keyboard:*/
     inp.addEventListener("keydown", function(e) {
       var x = document.getElementById(this.id + "autocomplete-list");
@@ -422,6 +472,9 @@ date_default_timezone_set('America/Lima');
         addActive(x);
       } else if (e.keyCode == 13) {
         /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        if (estado == 1) {
+          alert(document.getElementById('txtestado').innerHTML);
+        }
         e.preventDefault();
         if (currentFocus > -1) {
           /*and simulate a click on the "active" item:*/
@@ -465,6 +518,39 @@ date_default_timezone_set('America/Lima');
   }
 
   autocomplete(document.getElementById("txtestado"), countries);
+
+
+  $(document).ready(function() {
+    var documento = $(window).height() - 83;
+    $('#postList').removeAttr('style');
+    $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
+
+    $('#postList').scroll(function() {
+      var lastID = $('.load-more').attr('lastID');
+      var divlist = document.getElementById("postList");
+      var clientHeight = divlist.clientHeight;
+      var scrollHeight = divlist.scrollHeight;
+      var scrolTop = divlist.scrollTop + 1;
+      console.log(Math.round(scrolTop) + " = " + scrollHeight + "-" + clientHeight);
+      if (Math.round(scrolTop) == scrollHeight - clientHeight && lastID != 0) {
+        $.ajax({
+          type: 'POST',
+          url: 'getData.php',
+          data: 'idpost=' + lastID,
+          beforeSend: function(html) {
+            $('.load-more').show();
+          },
+          success: function(html) {
+            $('.load-more').remove();
+            $('#postList').append(html);
+            var documento = $(window).height() - 83;
+            $('#postList').removeAttr('style');
+            $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
+          }
+        });
+      }
+    });
+  });
 </script>
 
 </html>
