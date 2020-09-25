@@ -444,7 +444,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
         }
       }
     });
-
+    
     function setCursorToEnd(ele) {
       var range = document.createRange();
       var sel = window.getSelection();
@@ -482,7 +482,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
         }
       }
     });
-
+    
     function addActive(x) {
       /*a function to classify an item as "active":*/
       if (!x) return false;
@@ -493,7 +493,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
       /*add class "autocomplete-active":*/
       x[currentFocus].classList.add("autocomplete-active");
     }
-
+    
     function removeActive(x) {
       /*a function to remove the "active" class from all autocomplete items:*/
       for (var i = 0; i < x.length; i++) {
@@ -516,10 +516,9 @@ $datadisp =  str_replace(',', '","', $datadimplode);
       closeAllLists(e.target);
     });
   }
-
+  
   autocomplete(document.getElementById("txtestado"), countries);
-
-
+  
   $(document).ready(function() {
     var documento = $(window).height() - 83;
     $('#postList').removeAttr('style');
