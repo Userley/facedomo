@@ -10,13 +10,17 @@ date_default_timezone_set('America/Lima');
 
 //   $title = $linkObj->children(0)->children(0)->plaintext;
 // }
-$qrdispositivos = mysqli_query($Cn, "SELECT nombre FROM dispositivos");
+$qrdispositivos = mysqli_query($Cn, "SELECT idDispositivo,nombre FROM dispositivos");
 
 while ($data = mysqli_fetch_array($qrdispositivos)) {
+  $iddispositivosarray[] = $data["idDispositivo"];
   $dispositivosarray[] = $data["nombre"];
 }
 $datadimplode = implode(",", $dispositivosarray);
 $datadisp =  str_replace(',', '","', $datadimplode);
+
+// $dataIddispimplode = implode(",", $iddispositivosarray);
+// $dataiddisp =  str_replace(',', '","', $dataIddispimplode);
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +76,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
     <div class="row">
       <div class="col-md-3 col-lg-3 col-xl-3 d-none d-sm-none d-md-block d-lg-block faceanimable">
         <div class="d-flex justify-content-center">
-          <div class="card bg-light card-light" style="width: 18rem;">
+          <div class="card bg-dark text-white" style="width: 18rem;">
             <img src="assets/images/userley.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               BIENVENIDO <br>
@@ -80,8 +84,8 @@ $datadisp =  str_replace(',', '","', $datadimplode);
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-center mt-2">
-          <div class="card" style="width: 18rem;">
+        <div class="d-flex justify-content-center mt-3">
+          <div class="card bg-dark text-white" style="width: 18rem;">
             <ul class="list-group list-group-flush">
               <li class="list-group-item bg-dark"> <a href="index.php"> <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                   NOTICIAS</a></li>
@@ -94,7 +98,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
         </div>
       </div>
       <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9">
-        <div class="overflow-auto bg-light p-md-3 border" id="postList" style="max-width: 100%;">
+        <div class="overflow-auto p-md-3 " id="postList" style="max-width: 100%;">
           <!-- <div class="card bg-light card-light animable">
             <div class="card-body">
               <div class="d-flex justify-content-center">
@@ -104,11 +108,11 @@ $datadisp =  str_replace(',', '","', $datadimplode);
               </div>
             </div>
           </div> -->
-          <div class="card bg-light card-light animable">
+          <div class="card bg-dark card-dark animable bc">
             <div class="card-body">
               <div class="d-flex justify-content-center">
                 <img src="assets/images/userley.jpg" width="40px" class="d-inline-flex mr-3 rounded-circle" alt="">
-                <div contenteditable="true" id="txtestado" class="single-line bg-white d-inline"></div>
+                <div contenteditable="true" id="txtestado" class="single-line bg-white d-inline border"></div>
                 <!-- <input type="button" class="btn btn-primary ml-2 rounded-circle" value="Ok"> -->
               </div>
             </div>
@@ -119,7 +123,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
           if ($query->num_rows > 0) {
             while ($row = mysqli_fetch_assoc($query)) {
               $postID = $row["idpost"];
-              echo "<div class='card p-1 mt-2 shadow-sm d-flex animable' style='width: 100%;'>" . $row['contenido'] . "</div>";
+              echo "<div class='card bg-dark text-white p-1 mt-2 shadow-sm d-flex animable' style='width: 100%;'>" . $row['contenido'] . "</div>";
             }
             echo "<div class='load-more' lastID='" . $postID . "' style='display: none;'><img src='assets/images/loading.gif' alt=''> </div>";
           }
@@ -380,8 +384,8 @@ $datadisp =  str_replace(',', '","', $datadimplode);
 
 
 
-  var countries = <?php echo '["' . $datadisp . '"]' ?>;
-  console.log(countries);
+  var devices = <?php echo '["' . $datadisp . '"]' ?>;
+  //console.log(devices);
 
   function autocomplete(inp, arr) {
     var estado = 0;
@@ -419,7 +423,8 @@ $datadisp =  str_replace(',', '","', $datadimplode);
           b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
           b.innerHTML += arr[i].substr(val.length);
           /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          b.innerHTML += "<input type='hidden'  value='" + arr[i] + "'>";
+
           /*execute a function when someone clicks on the item value (DIV element):*/
           //var letravisible = inp.innerHTML;
           // $('#txtestado').find("font").remove();
@@ -428,7 +433,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
           b.addEventListener("click", function(e) {
             estado = 1;
             /*insert the value for the autocomplete text field:*/
-            inp.innerHTML = "<a href='https://www.google.com' target='_blank' id='etiqueta'>" + this.getElementsByTagName("input")[0].value + "</a><span id='texto'>&nbsp;</span>";
+            inp.innerHTML = "<a href='' target='_blank' id='etiqueta'>" + this.getElementsByTagName("input")[0].value + "</a><span id='texto'>&nbsp;</span>";
 
             if ($('#etiqueta').length != 0) {
               var etiqueta = document.getElementById("etiqueta");
@@ -444,7 +449,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
         }
       }
     });
-    
+
     function setCursorToEnd(ele) {
       var range = document.createRange();
       var sel = window.getSelection();
@@ -473,7 +478,11 @@ $datadisp =  str_replace(',', '","', $datadimplode);
       } else if (e.keyCode == 13) {
         /*If the ENTER key is pressed, prevent the form from being submitted,*/
         if (estado == 1) {
-          alert(document.getElementById('txtestado').innerHTML);
+          // alert(document.getElementById('txtestado').innerHTML);
+
+          $dispX = $('#etiqueta').text();
+          $AcciX = $('#texto').text();
+          ActionsDevice($dispX, $AcciX);
         }
         e.preventDefault();
         if (currentFocus > -1) {
@@ -482,7 +491,54 @@ $datadisp =  str_replace(',', '","', $datadimplode);
         }
       }
     });
-    
+
+
+
+
+
+
+    function ActionsDevice(nomdispositivo, accion) {
+      console.log(nomdispositivo);
+      console.log(accion);
+
+      $.ajax({
+        type: "POST",
+        url: "lib/api/apidata.php",
+        data: {
+          'nomDispositivo': nomdispositivo,
+          'Estado': accion.trim() === "on" ? parseInt("1") : parseInt("0"),
+          'Activo': 1,
+          'ValorActivo': 0
+        },
+        success: function(html) {
+          alert(html);
+
+          var campopost = $('#txtestado');
+          campopost.text('');
+          if (campopost.text().length == 0) {
+            $('#etiqueta').remove();
+            $('#texto').remove();
+          }
+
+          $('.load-more').remove();
+          $('#postList').append(html);
+          var documento = $(window).height() - 83;
+          $('#postList').removeAttr('style');
+          $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
+          // CargarDatos();
+          //     if (data = null) {
+          //         $("#txtestado1").html(" ¡Error de Conexión!");
+          //     }
+          //     if (data = true) {
+          //         $("#txtestado1").html(" Dispositivo Activado / Desactivado");
+          //     }
+        }
+      });
+    }
+
+
+
+
     function addActive(x) {
       /*a function to classify an item as "active":*/
       if (!x) return false;
@@ -493,7 +549,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
       /*add class "autocomplete-active":*/
       x[currentFocus].classList.add("autocomplete-active");
     }
-    
+
     function removeActive(x) {
       /*a function to remove the "active" class from all autocomplete items:*/
       for (var i = 0; i < x.length; i++) {
@@ -516,9 +572,24 @@ $datadisp =  str_replace(',', '","', $datadimplode);
       closeAllLists(e.target);
     });
   }
-  
-  autocomplete(document.getElementById("txtestado"), countries);
-  
+
+  autocomplete(document.getElementById("txtestado"), devices);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   $(document).ready(function() {
     var documento = $(window).height() - 83;
     $('#postList').removeAttr('style');
