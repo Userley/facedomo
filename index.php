@@ -510,8 +510,10 @@ $datadisp =  str_replace(',', '","', $datadimplode);
           'Activo': 1,
           'ValorActivo': 0
         },
-        success: function(html) {
-          alert(html);
+        success: function(data) {
+          debugger;
+          var ojo = data;
+          alert(ojo);
 
           var campopost = $('#txtestado');
           campopost.text('');
@@ -521,7 +523,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
           }
 
           $('.load-more').remove();
-          $('#postList').append(html);
+          $('#postList').append(data);
           var documento = $(window).height() - 83;
           $('#postList').removeAttr('style');
           $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
