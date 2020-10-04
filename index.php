@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("conexion.php");
 // require('assets/simpledom/simple_html_dom.php');
 setlocale(LC_ALL, "es_PE", "es_PE", "esp");
@@ -117,17 +118,19 @@ $datadisp =  str_replace(',', '","', $datadimplode);
               </div>
             </div>
           </div>
-          <?php
-          //get rows query
-          $query = mysqli_query($Cn, "SELECT * FROM post ORDER BY idpost DESC LIMIT 10");
-          if ($query->num_rows > 0) {
-            while ($row = mysqli_fetch_assoc($query)) {
-              $postID = $row["idpost"];
-              echo "<div class='card bg-dark text-white p-1 mt-2 shadow-sm d-flex animable' style='width: 100%;'>" . $row['contenido'] . "</div>";
+          <div id="contenidopost">
+            <?php
+            //get rows query
+            $query = mysqli_query($Cn, "SELECT * FROM post ORDER BY idpost DESC LIMIT 10");
+            if ($query->num_rows > 0) {
+              while ($row = mysqli_fetch_assoc($query)) {
+                $postID = $row["idpost"];
+                echo "<div class='card bg-light p-1 mt-2 shadow-sm d-flex animable' style='width: 100%;'>" . $row['contenido'] . "</div>";
+              }
+              echo "<div class='load-more' lastID='" . $postID . "' style='display: none;'><img src='assets/images/loading.gif' alt=''> </div>";
             }
-            echo "<div class='load-more' lastID='" . $postID . "' style='display: none;'><img src='assets/images/loading.gif' alt=''> </div>";
-          }
-          ?>
+            ?>
+          </div>
         </div>
 
         <!-- <div class="overflow-auto bg-light p-0 p-md-3 border" style="max-width: 100%; max-height: 680px;">
@@ -498,8 +501,8 @@ $datadisp =  str_replace(',', '","', $datadimplode);
 
 
     function ActionsDevice(nomdispositivo, accion) {
-      console.log(nomdispositivo);
-      console.log(accion);
+      // console.log(nomdispositivo);
+      // console.log(accion);
 
       $.ajax({
         type: "POST",
@@ -511,9 +514,9 @@ $datadisp =  str_replace(',', '","', $datadimplode);
           'ValorActivo': 0
         },
         success: function(data) {
-          debugger;
-          var ojo = data;
-          alert(ojo);
+          var ojo = JSON.parse(data);
+          // debugger;
+          //  alert(ojo[0]);
 
           var campopost = $('#txtestado');
           campopost.text('');
@@ -523,10 +526,17 @@ $datadisp =  str_replace(',', '","', $datadimplode);
           }
 
           $('.load-more').remove();
-          $('#postList').append(data);
+
+          var element = document.getElementById("contenidopost");
+          while (element.firstChild) {
+            element.removeChild(element.firstChild);
+          }
+          $('#contenidopost').append(ojo[0]);
+          sessionStorage.setItem('codigo', ojo[1]);
+          sessionStorage.setItem('estado', accion.trim() === "on" ? parseInt("1") : parseInt("0"));
           var documento = $(window).height() - 83;
-          $('#postList').removeAttr('style');
-          $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
+          // $('#postList').removeAttr('style');
+          // $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
           // CargarDatos();
           //     if (data = null) {
           //         $("#txtestado1").html(" ¡Error de Conexión!");
@@ -603,7 +613,7 @@ $datadisp =  str_replace(',', '","', $datadimplode);
       var clientHeight = divlist.clientHeight;
       var scrollHeight = divlist.scrollHeight;
       var scrolTop = divlist.scrollTop + 1;
-      console.log(Math.round(scrolTop) + " = " + scrollHeight + "-" + clientHeight);
+      //  console.log(Math.round(scrolTop) + " = " + scrollHeight + "-" + clientHeight);
       if (Math.round(scrolTop) == scrollHeight - clientHeight && lastID != 0) {
         $.ajax({
           type: 'POST',
@@ -623,6 +633,39 @@ $datadisp =  str_replace(',', '","', $datadimplode);
       }
     });
   });
+
+
+
+  function CargarDatos() {
+    $.ajax({
+      type: "POST",
+      url: "lib/api/apiresult.php",
+      dataType: "json",
+      success: function(data) {
+        var jsontexto = JSON.parse(data);
+        console.log(data);
+
+        jsontexto.forEach(element => {
+
+          var iddisposi = sessionStorage.getItem('codigo');
+          var dispestado = sessionStorage.getItem('estado');
+          if (element.IdDispositivo == iddisposi && element.Respuesta == dispestado) {
+           // debugger;
+            alert("Se actualizó");
+            sessionStorage.setItem('codigo', '');
+            sessionStorage.setItem('estado', '');
+
+          }
+
+        });
+      }
+    });
+  };
+
+
+  setInterval(() => {
+    CargarDatos();
+  }, 1000);
 </script>
 
 </html>

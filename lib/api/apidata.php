@@ -40,16 +40,16 @@ if ($rpta) {
   if ($estado == 1) {
 
     $dato = '<div class="d-inline-flex ml-1">
-        <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
+        <img src="assets/images/userley.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
         <div class="float-left mt-1">
-          <span><small><strong>' . $nombredispo . '</strong></small></span> -
+          <span><small><strong>Erick Leyva Díaz</strong></small></span> -
           <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
               Hace 35 min.</small></span>
         </div>
       </div>
-      <div class="p-1 pl-2 pr-2">
-        <p><span style="text-align: justify !important;"></span>Su solicitud a <i>' . $nombredispo . '</i> se está enviando</p>
-        <p style="text-align:center !important;"><i class="fa fa-toggle-on" aria-hidden="true" style="color:#49B164; font-size: 25px;"></i><br><i> encender...</i></p>
+      <div class="p-3">
+        <p><span style="text-align: justify !important;"></span>Activando a <i>' . $nombredispo . '</i>, espere confirmación...</p>
+        <p style="text-align:center !important;"><i class="fa fa-toggle-on" aria-hidden="true" style="color:#49B164; font-size: 25px;"></i><br><i> activando...</i></p>
         <small>
           <p class="text-muted"><i class="fa fa-home" aria-hidden="true"></i> Domo<i>Live</i></p>
         </small>
@@ -58,16 +58,16 @@ if ($rpta) {
     $rsptax = mysqli_query($Cn, "insert into post (identificador,contenido,creacion,estado) values ('" . $dispositivo . "', '" .  $dato . "','',1)");
   } else {
     $dato = '<div class="d-inline-flex ml-1">
-        <img src="assets/images/music.png" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
+        <img src="assets/images/userley.jpg" style="width: 30px; height: 30px;" alt="" class="mr-2 mt-1 float-left shadow-sm">
         <div class="float-left mt-1">
-          <span><small><strong>' . $nombredispo . '</strong></small></span> -
+          <span><small><strong>Erick Leyva Díaz</strong></small></span> -
           <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
               Hace 35 min.</small></span>
         </div>
         </div>
-        <div class="p-1 pl-2 pr-2">
-        <p><span style="text-align: justify !important;"></span>Su solicitud a <i>' . $nombredispo . '</i> se está enviando</p>
-        <p style="text-align:center !important;"><i class="fa fa-toggle-off" aria-hidden="true" style="color:#F90101; font-size: 25px;"></i><br><i> apagando...</i></p>
+        <div class="p-3">
+        <p><span style="text-align: justify !important;"></span>Desactivando a <i>' . $nombredispo . '</i>, espere confirmación...</p>
+        <p style="text-align:center !important;"><i class="fa fa-toggle-off" aria-hidden="true" style="color:#F90101; font-size: 25px;"></i><br><i> desactivando...</i></p>
         <small>
           <p class="text-muted"><i class="fa fa-home" aria-hidden="true"></i> Domo<i>Live</i></p>
         </small>
@@ -77,21 +77,23 @@ if ($rpta) {
   }
 
 
-
-  $rata[] = array();
+  $rata = array();
+  $datos = "";
   if ($rsptax) {
     $query = mysqli_query($Cn, "SELECT idpost,contenido FROM post ORDER BY idpost DESC LIMIT 10");
     if ($query->num_rows > 0) {
       while ($row = mysqli_fetch_assoc($query)) {
+
         $postID = $row["idpost"];
-        $rata[0] += "<div class='card bg-dark text-white p-1 mt-2 shadow-sm d-flex animable' style='width: 100%;'>" . $row['contenido'] . "</div>";
+        $datos = $datos . '<div class="card bg-light p-1 mt-2 shadow-sm d-flex animable" style="width: 100%;">' . $row['contenido'] . '</div>';
       }
-      // echo "<div class='load-more' lastID='" . $postID . "' style='display: none;'><img src='assets/images/loading.gif' alt=''> </div>";
+      $datos = $datos . '<div class="load-more" lastID="' . $postID . '" style="display: none;"><img src="assets/images/loading.gif" alt=""> </div>';
     }
   } else {
     //echo false;
   }
 }
-
+$rata[0] = $datos;
+$rata[1] = $dispositivo;
 echo json_encode($rata);
 curl_close($cn);
