@@ -78,152 +78,15 @@ include_once("conexion.php");
         </div>
       </div>
       <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
-        <!-- <div class=" p-1" id="postList" style="max-width: 100%; max-height: 680px;"> -->
-        <!-- <div class="textarea_noticia" id="textarea_noticia" contenteditable="true"></div>
-          <div id='display_users'></div>
-          <div class="display_box" align="left">
-            <a href="#" class='addname' title='?php echo $name; ?>'>
-              ?php echo $name; ?>&nbsp</a><br />
-          </div> -->
         <div class="overflow-auto bg-light p-md-3 border" id="postList" style="max-width: 100%;">
-          <div class="card bg-light card-light animable">
-            <div class="card-body">
-              <div class="d-flex justify-content-center">
-                <img src="assets/images/userley.jpg" width="40px" class="d-inline-flex mr-3 rounded-circle" alt="">
-                <input type="text" name="" id="txtestado" class="form-control d-inline-flex" style="width: 100%;" placeholder="Escribe tu estado...">
-              </div>
-            </div>
-          </div>
-          <?php
-          //get rows query
-          $query = mysqli_query($Cn, "SELECT * FROM post ORDER BY idpost DESC LIMIT 10");
-          if ($query->num_rows > 0) {
-            while ($row = mysqli_fetch_assoc($query)) {
-              $postID = $row["idpost"];
-          ?>
-              <div class="list-item">
-                <?php echo $row['contenido']; ?>
 
-              </div>
-
-            <?php } ?>
-            <div class="load-more" lastID="<?php echo $postID; ?>" style="display: none;">
-              <img src="assets/images/loading.gif" />
-            </div>
-          <?php } ?>
-          <!-- </div> -->
         </div>
 
       </div>
     </div>
   </section>
 </body>
-<style>
-  /* .textarea_noticia {
-    background-color: white;
-    border-radius: 15px;
-    padding: 3px;
-    border: 1px solid #d4d4d4;
-  } */
 
-  .post-list {
-    margin-bottom: 20px;
-  }
 
-  div.list-item {
-    /* border-left: 4px solid #7ad03a;
-    margin: 5px 15px 2px;
-    padding: 1px 12px;
-    background-color: #F1F1F1;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-    height: 60px; */
-  }
-
-  div.list-item p {
-    /* margin: .5em 0;
-    padding: 2px;
-    font-size: 13px;
-    line-height: 1.5; */
-  }
-
-  .list-item a {
-    /* text-decoration: none;
-    padding-bottom: 2px;
-    color: #0074a2;
-    -webkit-transition-property: border, background, color;
-    transition-property: border, background, color;
-    -webkit-transition-duration: .05s;
-    transition-duration: .05s;
-    -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out; */
-  }
-
-  .list-item a:hover {
-    text-decoration: underline;
-  }
-
-  .load-more {
-    margin: 15px 25px;
-    cursor: pointer;
-    padding: 10px 0;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  .list-item h2 {
-    /* font-size: 25px;
-    font-weight: bold;
-    text-align: left; */
-  }
-</style>
-<script>
-  // $(".addname").on("click", function() {
-  //   var username = $(this).attr('title');
-  //   var old =  $(".textarea_noticia").html();
-  //    var word = username;
-  //   var content = old.replace(word, "");
-  //   $(".textarea_noticia").html(content);
-  //   var E = "<a class='red' contenteditable='false' href='www.google.com' >" + username + "</a>";
-  //   $(".textarea_noticia").append(E);
-  //   $("#display_users").hide();
-  // });
-
-  // $(document).ready(function() {
-  //   $(window).scroll(function() {
-  //     var lastID = $('.load-more').attr('lastID');
-  //     if ($(window).scrollTop() == $(document).height() - $(window).height() && lastID != 0) {
-  $(document).ready(function() {
-    var documento = $(window).height() - 83;
-    $('#postList').removeAttr('style');
-    $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
-
-    $('#postList').scroll(function() {
-      var lastID = $('.load-more').attr('lastID');
-      var divlist = document.getElementById("postList");
-      var clientHeight = divlist.clientHeight;
-      var scrollHeight = divlist.scrollHeight;
-      var scrolTop = divlist.scrollTop + 1;
-      console.log(Math.round(scrolTop) + " = " + scrollHeight + "-" + clientHeight);
-      if (Math.round(scrolTop) == scrollHeight - clientHeight && lastID != 0) {
-        $.ajax({
-          type: 'POST',
-          url: 'getData.php',
-          data: 'idpost=' + lastID,
-          beforeSend: function(html) {
-            $('.load-more').show();
-          },
-          success: function(html) {
-            $('.load-more').remove();
-            $('#postList').append(html);
-            var documento = $(window).height() - 83;
-            $('#postList').removeAttr('style');
-            $('#postList').attr('style', 'max-width: 100%;height:' + documento + 'px');
-          }
-        });
-      }
-    });
-  });
-</script>
 
 </html>

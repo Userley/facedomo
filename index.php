@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("conexion.php");
+
 // require('assets/simpledom/simple_html_dom.php');
 setlocale(LC_ALL, "es_PE", "es_PE", "esp");
 date_default_timezone_set('America/Lima');
@@ -634,24 +635,57 @@ $datadisp =  str_replace(',', '","', $datadimplode);
     });
   });
 
+  function RespuestaDispositivo(IdDispositivoX, EstadoX) {
+    $.ajax({
+      type: "GET",
+      url: "lib/api/requestDevice.php",
+      dataType: "json",
+      data: {
+        'IdDispositivoX': IdDispositivoX,
+        'EstadoX': EstadoX
+      },
+      success: function(data) {
 
+        // debugger;
+        //  var json = JSON.parse(data);
+
+        // alert(json);
+
+        // var campopost = $('#txtestado');
+        // campopost.text('');
+        // if (campopost.text().length == 0) {
+        //   $('#etiqueta').remove();
+        //   $('#texto').remove();
+        // }
+        var element = document.getElementById("contenidopost");
+        while (element.firstChild) {
+          element.removeChild(element.firstChild);
+        }
+        $('#contenidopost').append(data);
+        var documento = $(window).height() - 83;
+
+      }
+    });
+  };
 
   function CargarDatos() {
     $.ajax({
-      type: "POST",
+      type: "GET",
       url: "lib/api/apiresult.php",
       dataType: "json",
       success: function(data) {
         var jsontexto = JSON.parse(data);
-        console.log(data);
+        // console.log(data);
 
         jsontexto.forEach(element => {
 
           var iddisposi = sessionStorage.getItem('codigo');
           var dispestado = sessionStorage.getItem('estado');
           if (element.IdDispositivo == iddisposi && element.Respuesta == dispestado) {
-           // debugger;
-            alert("Se actualizó");
+            // debugger;
+            // alert("Se actualizó");
+
+            RespuestaDispositivo(element.IdDispositivo, element.Respuesta);
             sessionStorage.setItem('codigo', '');
             sessionStorage.setItem('estado', '');
 

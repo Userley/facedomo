@@ -35,7 +35,7 @@ curl_setopt($cn, CURLOPT_HEADER, false);
 curl_setopt($cn, CURLOPT_RETURNTRANSFER, 1);
 $rpta = curl_exec($cn);
 
-$fecha = getdate();
+$fecha = date('m/d/Y g:i a');
 if ($rpta) {
   if ($estado == 1) {
 
@@ -44,7 +44,7 @@ if ($rpta) {
         <div class="float-left mt-1">
           <span><small><strong>Erick Leyva Díaz</strong></small></span> -
           <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
-              Hace 35 min.</small></span>
+              ' . $fecha . '.</small></span>
         </div>
       </div>
       <div class="p-3">
@@ -62,7 +62,7 @@ if ($rpta) {
         <div class="float-left mt-1">
           <span><small><strong>Erick Leyva Díaz</strong></small></span> -
           <span class=""><small class="text-muted "><i class="fa fa-clock-o" aria-hidden="true"></i>
-              Hace 35 min.</small></span>
+              ' . $fecha . '.</small></span>
         </div>
         </div>
         <div class="p-3">

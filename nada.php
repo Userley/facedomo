@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -75,11 +74,14 @@
       <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
 
         <div class="overflow-auto bg-light p-md-3 border" id="postList" style="max-width: 100%;">
-         
+          <?php
+
+          ?>
         </div>
 
       </div>
     </div>
   </section>
 </body>
+
 </html>
